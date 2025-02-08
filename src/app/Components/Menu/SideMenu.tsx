@@ -1,0 +1,64 @@
+"use client"
+import styles from './SideMenu.module.css'
+
+import HelpIcon from "../Icons/Help"
+import DashboardIcon from "../Icons/Dashboard"
+import CalendarIcon from "../Icons/Calendar"
+import IAsIcon from "../Icons/Ias";
+import FavoritosIcon from "../Icons/Favorite";
+import MetricasIcon from "../Icons/Metrics";
+import PagesIcon from "../Icons/Pages";
+import LeadsIcon from "../Icons/Leads";
+import FunilIcon from "../Icons/Funel";
+
+import Link from 'next/link';
+import { useState } from 'react'
+
+export default function SideMenu() {
+    const [activeLink, setActiveLink] = useState<string>("/dashboard");
+
+    const menuItems = [
+        { to: "dashboard", label: "Dashboard", icon: <DashboardIcon /> },
+        { to: "ias", label: "Todas as IA's", icon: <IAsIcon /> },
+        { to: "favoritos", label: "Favoritos", icon: <FavoritosIcon /> },
+        { to: "metricas", label: "Métricas", icon: <MetricasIcon /> },
+        { to: "ladingPages", label: "Lading Pages", icon: <PagesIcon /> },
+        { to: "calendar", label: "Calendário", icon: <CalendarIcon /> },
+        { to: "leads", label: "Leads", icon: <LeadsIcon /> },
+        { to: "funis", label: "Funil", icon: <FunilIcon /> },
+        { to: "help", label: "Ajuda", icon: <HelpIcon /> },
+    ];
+
+    const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
+        event.preventDefault()
+        const clickedPath = event.currentTarget.getAttribute("href");
+        if (clickedPath) {
+            setActiveLink(clickedPath);
+        }
+    };
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.menuLayout}>
+                <h2>BIT-AI</h2>
+                <ul className={styles.menu}>
+                    {menuItems.map((item) => (
+                        <li
+                            key={item.to}
+                            className={activeLink === item.to ? styles.active : ""} 
+                            onClick={handleClick}
+                        >
+                            <Link href={item.to}>{item.icon}</Link>
+                            <Link href={item.to} className={styles.text}>
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+                <ul>
+                    <li>Sair</li>
+                </ul>
+            </div>
+        </div>
+    );
+}

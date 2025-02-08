@@ -1,0 +1,26 @@
+.menu{
+    display: flex;
+    height: 4rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo p{
+    font-size: 10px;
+    height: 4rem;
+    padding: 0;
+}
+
+.buttons{
+    display: flex;
+    column-gap: 0.5rem;
+}
+
+.buttons button{
+    margin: 0;
+    width: 7.5rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    font-size: 14px;
+}
