@@ -48,8 +48,8 @@ export default function SideMenu() {
                             className={activeLink === item.to ? styles.active : ""} 
                             onClick={handleClick}
                         >
-                            <Link href={item.to}>{item.icon}</Link>
-                            <Link href={item.to} className={styles.text}>
+                            <Link href={"/bit-ai/" + item.to}>{item.icon}</Link>
+                            <Link href={"/bit-ai/" + item.to} className={styles.text}>
                                 {item.label}
                             </Link>
                         </li>
