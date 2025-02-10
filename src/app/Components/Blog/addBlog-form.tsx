@@ -43,7 +43,7 @@ export default function AddBlog() {
     Faça tudo isso sobre o tema ${message}
     `
 
-        const response = await axios.post(`http://localhost:2700/ia`, { message: formattedPrompt });
+        const response = await axios.post(`https://bitai-back.vercel.app/ia`, { message: formattedPrompt });
 
         const data = response.data;
 

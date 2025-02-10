@@ -16,7 +16,7 @@ export default async function userGet() {
             throw new Error("Token não encontrado nos cookies");
         }
 
-        const response = await axios.get('http://localhost:2700/auth/user', {
+        const response = await axios.get('https://bitai-back.vercel.app/auth/user', {
             headers: {
                 Authorization: `Bearer ${token}`
             }

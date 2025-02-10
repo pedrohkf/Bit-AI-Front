@@ -8,7 +8,7 @@ export default async function login(formData: FormData) {
 
     if (!email || !password) throw new Error('Preencha os dados.')
 
-    const response = await axios.post('http://localhost:2700/auth/login', {
+    const response = await axios.post('https://bitai-back.vercel.app/auth/login', {
         email,
         password
     });
