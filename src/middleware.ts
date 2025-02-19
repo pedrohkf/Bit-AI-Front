@@ -5,7 +5,7 @@ export async function middleware(request: NextRequest) {
     const token = cookie?.value;
     const authenticated = token ? true : false;
 
-    if (!authenticated && request.nextUrl.pathname.startsWith('/dashboard')) {
+    if (!authenticated && request.nextUrl.pathname.startsWith('bit-ai/dashboard')) {
         return NextResponse.redirect(new URL('/login', request.url))
     }
 

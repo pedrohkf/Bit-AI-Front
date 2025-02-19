@@ -5,13 +5,15 @@ import { createContext, useState, useContext } from 'react';
 const BlogContext = createContext<{
     posts: string;
     setPosts: (value: string) => void;
+    userId: string;
+    setUserId: (value: string) => void;
 } | null>(null);
 
 export function BlogProvider({ children }: { children: React.ReactNode }) {
     const [posts, setPosts] = useState<string>('');
-
+    const [userId, setUserId] = useState<string>('');
     return (
-        <BlogContext.Provider value={{posts, setPosts}}>
+        <BlogContext.Provider value={{posts, setPosts, userId, setUserId}}>
             {children}
         </BlogContext.Provider>
     )
