@@ -83,3 +83,11 @@ svg{
 svg:hover{
   stroke: white;
 }
+
+@media (max-width: 455px){
+  button{
+    width: 7.5rem;
+    height: 3rem;
+    font-size: 14px;
+  }
+}

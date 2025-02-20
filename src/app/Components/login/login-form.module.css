@@ -1,0 +1,37 @@
+.forms{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 28rem;
+    background-color: rgb(83, 121, 155);
+    height: 60vh;
+    border-radius: 20px;
+}
+
+.title{
+    width: 100%;
+    font-size: 50px;
+    padding: 0 0 0 5rem;
+}
+
+.forms input{
+    width: 19rem;
+    height: 2.3rem;
+    padding-left: 1rem;
+    border-radius: 10px;
+}
+
+.forms div p{
+    margin-bottom: 0.4rem;
+}
+
+.forms button {
+    width: 19rem;
+}
+
+.message{
+    height: 2rem;
+    background-color: blue;
+}

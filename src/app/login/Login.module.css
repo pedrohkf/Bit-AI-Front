@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    background-color: rgb(41, 41, 41);
+    height: 100vh;
+}
+
+.ad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background-color: aliceblue;
+}
+
+.contentForm{
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

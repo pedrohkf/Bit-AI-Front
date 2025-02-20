@@ -3,9 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 export async function middleware(request: NextRequest) {
     const cookie = request.cookies.get('token')
     const token = cookie?.value;
-    const authenticated = token ? true : false;
 
-    if (!authenticated && request.nextUrl.pathname.startsWith('bit-ai/dashboard')) {
+    const authenticated = token && token.trim() !== '';
+
+    if (!authenticated && request.nextUrl.pathname.startsWith('/bit-ai')) {
         return NextResponse.redirect(new URL('/login', request.url))
     }
 

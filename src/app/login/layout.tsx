@@ -7,7 +7,6 @@ export default async function LoginLayout({
 }) {
     return (
         <div>
-            <h1>Hello</h1>
             <div>{children}</div>
         </div>
     )

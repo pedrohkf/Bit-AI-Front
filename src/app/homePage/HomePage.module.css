@@ -72,12 +72,12 @@
 
 @media (max-width: 490px) {
     .content{
-        height: 170vh;
+        height: 100vh;
         justify-content: start;
     }
 
     .presentation{
-        height: 140vh;
+        height: 85vh;
     }
 
     .title h1{

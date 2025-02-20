@@ -1,9 +1,11 @@
 'use client'
 import { useBlogContext } from '@/context/BlogContext';
+import styles from "./edit.module.css"
 import Button from '@/app/Components/forms/button';
 import { FormEvent, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import PostBlog from '@/actions/blog-post';
+import { useRouter } from "next/navigation"
 
 function FormButton() {
   const { pending } = useFormStatus();
@@ -22,15 +24,16 @@ function FormButton() {
 export default function Page() {
   const { posts } = useBlogContext();
   const [imgLink, setImgLink] = useState("");
+  const router = useRouter();
 
   const titleRegex = /#(.*)/
-  const catchyPhraseTextRegex = /#####(.*)/
-  const introductoryTextRegex = /##(.*)/
-  const developmentTextRegex = /###(.*)/
-  const complementTextRegex = /####(.*)/
-  const conclusionRegex = /#####(.*)/
-  const subTitleRegex = /@(.*)/
-  const textComplementRegex = /@@(.*)/
+  const catchyPhraseTextRegex = /@(.*)/
+  const introductoryTextRegex = /%(.*)/
+  const developmentTextRegex = /\$(.*)/
+  const complementTextRegex = /&(.*)/
+  const conclusionRegex = /\*(.*)/
+  const subTitleRegex = /\!(.*)/
+  const textComplementRegex = /\?(.*)/
 
   const titleMatch = posts.match(titleRegex)
   const catchyPhraseMatch = posts.match(catchyPhraseTextRegex)
@@ -52,38 +55,42 @@ export default function Page() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const formData = new FormData(event.currentTarget);
-    await PostBlog(formData);
+    
+    await PostBlog(formData);  
+    
+    router.push('/bit-ai/ias/blog');
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <p>Titulo</p>
-      <input type='text' name="title" value={title} />
+      <textarea type='text' name="title" value={title} />
       
       <p>SubTitulo</p>
-      <input type='text' name="subTitle" value={subTitle} />
+      <textarea type='text' name="subTitle" value={subTitle} />
 
       <p>Titulo complementar</p>
-      <input type='text' name="complementTitle" value={complementTitle} />
+      <textarea type='text' name="complementTitle" value={complementTitle} />
       
       <p>Frase de efeito</p>
-      <input type='text' name="catchyPhrase" value={catchyPhrase} />
+      <textarea type='text' name="catchyPhrase" value={catchyPhrase} />
 
       <p>Introduçao</p>
-      <input type='text' name="introductory" value={introductory} /> 
+      <textarea type='text' name="introductory" value={introductory} /> 
 
       <p>Desenvolvimento</p>
-      <input type='text' name="development" value={development} />
+      <textarea type='text' name="development" value={development} />
       
       <p>Texto complementar</p>
-      <input type='text' name="textComplement" value={textComplement} />
+      <textarea type='text' name="textComplement" value={textComplement} />
       
       <p>Conclusao</p>
-      <input type='text' name="conclusion" value={conclusion} />
+      <textarea type='text' name="conclusion" value={conclusion} />
 
       <img src={imgLink} alt="Adicione uma imagem" />
-      <input type='text' name="imgLink" placeholder='URL' value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
+      <textarea type='text' name="imgLink" placeholder='URL' value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
 
       <FormButton />
     </form>
