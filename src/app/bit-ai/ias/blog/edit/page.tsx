@@ -1,7 +1,7 @@
 'use client'
 import { useBlogContext } from '@/context/BlogContext';
 import Button from '@/app/Components/forms/button';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import PostBlog from '@/actions/blog-post';
 
@@ -50,9 +50,9 @@ export default function Page() {
   const subTitle = subTitleMatch ? subTitleMatch[1].trim() : '';
   const textComplement = textComplementMatch ? textComplementMatch[1].trim() : '';
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
     await PostBlog(formData);
   }
 
