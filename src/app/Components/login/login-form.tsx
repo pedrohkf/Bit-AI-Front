@@ -20,12 +20,12 @@ function FormButton() {
     );
 }
 
-export default function LoginForm({token}) {
+export default function LoginForm() {
     const [email, setEmail] = useState<string>();
     const [password, setPassword] = useState<string>();
     const [error, setError] = useState<string>();
 
-    const handleSubmit = async (formData) => {
+    const handleSubmit = async (formData : FormData) => {
         await login(formData)
 
         if (!email) {

@@ -1,7 +1,7 @@
 'use server';
 import axios from "axios";
 import { cookies } from "next/headers";
-import LoginForm from '../app/Components/login/login-form';
+import { NextResponse } from "next/server";
 
 export default async function login(formData: FormData) {
     const email = formData.get("email") as string;
@@ -13,17 +13,17 @@ export default async function login(formData: FormData) {
     });
 
     if (!email) {
-        return response.status(400).json({ 
-            success: false, 
-            message: 'O campo "email" é obrigatório.' 
-        });
+        return NextResponse.json(
+            { success: false, message: 'O campo email é obrigatório.' },
+            { status: 400 }
+        );
     }
     
     if (!password) {
-        return response.status(400).json({ 
-            success: false, 
-            message: 'O campo "senha" é obrigatório.' 
-        });
+        return NextResponse.json(
+            { success: false, message: 'O campo email é obrigatório.' },
+            { status: 400 }
+        );
     }
 
 

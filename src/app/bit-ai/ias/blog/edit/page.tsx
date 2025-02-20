@@ -66,31 +66,31 @@ export default function Page() {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <p>Titulo</p>
-      <textarea type='text' name="title" value={title} />
+      <textarea name="title" value={title} />
       
       <p>SubTitulo</p>
-      <textarea type='text' name="subTitle" value={subTitle} />
+      <textarea name="subTitle" value={subTitle} />
 
       <p>Titulo complementar</p>
-      <textarea type='text' name="complementTitle" value={complementTitle} />
+      <textarea name="complementTitle" value={complementTitle} />
       
       <p>Frase de efeito</p>
-      <textarea type='text' name="catchyPhrase" value={catchyPhrase} />
+      <textarea name="catchyPhrase" value={catchyPhrase} />
 
       <p>Introduçao</p>
-      <textarea type='text' name="introductory" value={introductory} /> 
+      <textarea name="introductory" value={introductory} /> 
 
       <p>Desenvolvimento</p>
-      <textarea type='text' name="development" value={development} />
+      <textarea name="development" value={development} />
       
       <p>Texto complementar</p>
-      <textarea type='text' name="textComplement" value={textComplement} />
+      <textarea name="textComplement" value={textComplement} />
       
       <p>Conclusao</p>
-      <textarea type='text' name="conclusion" value={conclusion} />
+      <textarea name="conclusion" value={conclusion} />
 
       <img src={imgLink} alt="Adicione uma imagem" />
-      <textarea type='text' name="imgLink" placeholder='URL' value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
+      <textarea name="imgLink" placeholder='URL' value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
 
       <FormButton />
     </form>
