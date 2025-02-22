@@ -21,7 +21,7 @@ export default async function Blog() {
                     <Link href='blog/addBlog'>+ BLOG</Link>
                 </div>
                 
-                    {data.map((blogs) => <Link key={blogs._id} href={'/bit-ai/ias/blog/' + blogs._id}>
+                    {data.map((blogs) => <Link key={blogs._id} href={'../../blogsPublic/' + blogs._id}>
                         <div  className={styles.blogs}>
                             {blogs.title}
                             <div className={styles.buttons}>
