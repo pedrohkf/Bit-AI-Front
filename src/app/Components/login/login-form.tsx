@@ -21,23 +21,29 @@ function FormButton() {
 }
 
 export default function LoginForm() {
-    const [email, setEmail] = useState<string>();
-    const [password, setPassword] = useState<string>();
+    // const [email, setEmail] = useState<string>();
+    // const [password, setPassword] = useState<string>();
     const [error, setError] = useState<string>();
 
-    const handleSubmit = async (formData : FormData) => {
-        await login(formData)
+    const handleSubmit = async (formData: FormData) => {
+        const email = formData.get('email') as string;
+        const password = formData.get('password') as string;
+
+
 
         if (!email) {
             setError('O campo email é obrigatório.');
+            return
         }
 
         if (!password) {
             setError('O campo senha é obrigatório.');
+            return
         }
 
-        redirect('/bit-ai/dashboard')
+        await login(formData);
 
+        redirect('/bit-ai/dashboard')
     }
 
     return (
@@ -50,14 +56,14 @@ export default function LoginForm() {
                 <div>
                     <p>Email</p>
                     <input type="email" name="email" placeholder="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} />
+                        required
+                    />
                 </div>
                 <div>
                     <p>Senha</p>
                     <input type="password" name="password" placeholder="senha"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
+                        required
+                    />
                 </div>
                 <FormButton />
             </form>
