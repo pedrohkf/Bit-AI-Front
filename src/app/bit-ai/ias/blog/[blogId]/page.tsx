@@ -4,6 +4,10 @@ import styles from './Blog.module.css'
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+type HTMLContent = {
+  __html: string;
+};
+
 export default function Page() {
   const params = useParams();
   const blogId = params.blogId as string;
@@ -20,19 +24,23 @@ export default function Page() {
     fetchBlog()
   }, [blogId])
 
+  const formattedIntroductoryText: HTMLContent = { __html: (blog?.introductoryText || "").replace(/\.\s/g, ".<br/> <br/>") }
+
+  const formattedDevelopment: HTMLContent = { __html: (blog?.developmentText || "").replace(/\.\s/g, ".<br/> <br/>") }
+
 
   return (
     <div className={styles.container}>
       <h1>{blog?.title}</h1>
-      <p>{blog?.catchyPhrase}</p>
+      <p id={styles.catchyPhrase}>{blog?.catchyPhrase}</p>
       <ul>
         <li>criador</li>
       </ul>
-      <div>
-        <p>{blog?.introductoryText}</p>
+      <div className={styles.content}>
+        <p dangerouslySetInnerHTML={formattedIntroductoryText} />
         <img src={blog?.img} alt="Imagem do blog" />
-        <h3>{blog?.complementTitle}</h3>
-        <p>{blog?.developmentText}</p>
+        <p>{blog?.complementTitle}</p>
+        <p dangerouslySetInnerHTML={formattedDevelopment} />
         <p>{blog?.conclusion}</p>
       </div>
     </div>

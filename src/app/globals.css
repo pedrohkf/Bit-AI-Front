@@ -13,6 +13,11 @@
 }
 
 @font-face {
+  font-family: poppins-regular;
+  src: url(../../public/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
   font-family: poppins-semiBold;
   src: url(../../public/fonts/Poppins-SemiBold.ttf);
 }

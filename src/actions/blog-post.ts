@@ -13,8 +13,8 @@ export default async function PostBlog(formData: FormData) {
     const catchyPhrase = formData.get("catchyPhrase") as string;
 
     const introductoryText = formData.get("introductory") as string;
+    
     const developmentText = formData.get("development") as string;
-    const complementText = formData.get("textComplement") as string;
 
     const conclusion = formData.get("conclusion") as string;
     const img = formData.get("imgLink") as string;
@@ -38,7 +38,6 @@ export default async function PostBlog(formData: FormData) {
         catchyPhrase,
         introductoryText,
         developmentText,
-        complementText,
         conclusion,
         img,
         userId,

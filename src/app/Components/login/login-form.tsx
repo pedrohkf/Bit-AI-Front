@@ -29,8 +29,6 @@ export default function LoginForm() {
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
 
-
-
         if (!email) {
             setError('O campo email é obrigatório.');
             return
