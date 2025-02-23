@@ -20,9 +20,9 @@ export default async function Blog() {
                 <div className={styles.newBlog}>
                     <Link href='blog/addBlog'>+ BLOG</Link>
                 </div>
-                
-                    {data.map((blogs) => <Link key={blogs._id} href={'../../blogsPublic/' + blogs._id}>
-                        <div  className={styles.blogs}>
+                <div className={styles.blogs}>
+                {data.map((blogs) => <Link key={blogs._id} href={'../../blogsPublic/' + blogs._id}>
+                        <div  className={styles.boxes}>
                             {blogs.title}
                             <div className={styles.buttons}>
                                 <Link href="/bit-ai">
@@ -32,6 +32,8 @@ export default async function Blog() {
                             </div>
                         </div>
                     </Link> )}
+                </div>
+                    
             </div>
         </div>
     )

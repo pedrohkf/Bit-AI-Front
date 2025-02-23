@@ -81,7 +81,7 @@ export default function AddBlog() {
         - Tudo em portugues Brasil.
     `
 
-        const response = await axios.post(`http://localhost:2700/ia`, { message: formattedPrompt });
+        const response = await axios.post(`https://bit-ai-back.vercel.app/ia`, { message: formattedPrompt });
 
         const data = response.data;
 
