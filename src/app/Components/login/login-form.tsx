@@ -2,7 +2,6 @@
 import login from "@/actions/login";
 import Button from "@/app/Components/forms/button";
 import styles from "./login-form.module.css"
-import NextAuth from "next-auth";
 import { useFormStatus } from "react-dom";
 import { redirect } from "next/navigation";
 import { useState } from "react";
