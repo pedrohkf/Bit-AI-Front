@@ -5,7 +5,6 @@ import styles from "./login-form.module.css"
 import { useFormStatus } from "react-dom";
 import { redirect } from "next/navigation";
 import { useState } from "react";
-import LoginButtonGoogle from "./LoginButtonGoogle";
 
 function FormButton() {
     const { pending } = useFormStatus();
@@ -66,9 +65,6 @@ export default function LoginForm() {
                 </div>
                 <FormButton />
             </form>
-            <div>
-                <LoginButtonGoogle />
-            </div>
         </>
     )
 }
