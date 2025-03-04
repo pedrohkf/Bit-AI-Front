@@ -78,7 +78,7 @@ export default function AddBlog() {
 
         - Seja criativo e profissional. O objetivo é entregar um artigo que realmente agregue valor ao leitor e pareça escrito por um especialista no assunto.
 
-        - Tudo em portugues Brasil.
+        - Tudo em portugues Brasil, nada de ingles.
     `
         const response = await axios.post(`https://bit-ai-back.vercel.app/ia`, { message: formattedPrompt });
 

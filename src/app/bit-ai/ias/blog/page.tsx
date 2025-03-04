@@ -10,8 +10,6 @@ export const dynamic = "force-dynamic";
 export default async function Blog() {
     const data = await FetchBlogs()
 
-    console.log(data[0].title)
-
     return (
         <div className={styles.container}>
             <SideMenu />
@@ -21,19 +19,19 @@ export default async function Blog() {
                     <Link href='blog/addBlog'>+ BLOG</Link>
                 </div>
                 <div className={styles.blogs}>
-                {data.map((blogs) => <Link key={blogs._id} href={'../../blogsPublic/' + blogs._id}>
-                        <div  className={styles.boxes}>
+                    {data.map((blogs) => <a key={blogs._id} href={'../../blogsPublic/' + blogs._id}>
+                        <div className={styles.boxes}>
                             {blogs.title}
                             <div className={styles.buttons}>
-                                <Link href="/bit-ai">
+                                <a href={`https://wa.me/?text=https://bit-ai.netlify.app/blogsPublic/` + blogs._id}>
                                     <LinkIcon />
-                                </Link>
-                                <Link href={"/bit-ai/ias/blog/edit"}><RedirectPageIcon/></Link>
+                                </a>
+                                <Link href={"/bit-ai/ias/blog/edit"}><RedirectPageIcon /></Link>
                             </div>
                         </div>
-                    </Link> )}
+                    </a>)}
                 </div>
-                    
+
             </div>
         </div>
     )

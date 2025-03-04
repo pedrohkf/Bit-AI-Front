@@ -1,12 +1,10 @@
 'use client';
-import login from "@/actions/login";
 import Button from "@/app/Components/forms/button";
-import styles from "./login-form.module.css"
-import NextAuth from "next-auth";
+import register from "@/actions/register";
 import { useFormStatus } from "react-dom";
+import styles from "./register-form.module.css"
 import { redirect } from "next/navigation";
 import { useState } from "react";
-import LoginButtonGoogle from "./LoginButtonGoogle";
 
 function FormButton() {
     const { pending } = useFormStatus();
@@ -16,7 +14,7 @@ function FormButton() {
             {pending ? (
                 <Button disabled={pending}>Enviando...</Button>
             ) : (
-                <Button>Entrar</Button>
+                <Button onClick={() => redirect('bit-ai/dashboard')}>Entrar</Button>
             )}
         </>
     );
@@ -26,8 +24,6 @@ export default function LoginForm() {
     const [error, setError] = useState<string>();
 
     const handleSubmit = async (formData: FormData) => {
-        setError(undefined);
-
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
 
@@ -41,7 +37,7 @@ export default function LoginForm() {
             return
         }
 
-        await login(formData);
+        await register(formData);
 
         redirect('/bit-ai/dashboard')
     }
@@ -50,7 +46,7 @@ export default function LoginForm() {
         <>
             <form className={styles.forms} action={handleSubmit}>
                 <div className={styles.title}>
-                    <h1>LOGIN</h1>
+                    <h1>Register</h1>
                 </div>
                 <p>{error}</p>
                 <div>
@@ -67,9 +63,6 @@ export default function LoginForm() {
                 </div>
                 <FormButton />
             </form>
-            <div>
-                <LoginButtonGoogle />
-            </div>
         </>
     )
 }

@@ -13,7 +13,7 @@ export default async function PostBlog(formData: FormData) {
     const catchyPhrase = formData.get("catchyPhrase") as string;
 
     const introductoryText = formData.get("introductory") as string;
-    
+
     const developmentText = formData.get("development") as string;
 
     const conclusion = formData.get("conclusion") as string;

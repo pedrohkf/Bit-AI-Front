@@ -1,10 +1,10 @@
-.container{
+.container {
     display: flex;
     height: 100vh;
     overflow-y: hidden;
 }
 
-.blogs{
+.blogs {
     display: flex;
     height: 100vh;
     flex-wrap: wrap;
@@ -14,7 +14,7 @@
     overflow-y: auto;
 }
 
-.boxes{
+.boxes {
     display: flex;
     flex-direction: column;
     width: 15rem;
@@ -25,15 +25,16 @@
     padding: 1.5rem;
 }
 
-.boxes svg{
+.boxes svg {
     width: 1.5rem;
     height: 1.5rem;
 }
 
 .buttons {
-    width: 100%;
+    width: 4rem;
     display: flex;
-    background-color: rgba(143, 143, 143, 0);
+    background-color: rgba(190, 184, 184, 0.123);
     justify-content: flex-end;
     column-gap: 1rem;
+    border-radius: 3px;
 }

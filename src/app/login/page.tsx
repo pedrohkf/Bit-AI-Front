@@ -1,4 +1,4 @@
-import LoginForm from '@/app/Components/login/login-form'
+import LoginForm from '../Components/login/login-form'
 import styles from "./Login.module.css"
 import React from 'react'
 
