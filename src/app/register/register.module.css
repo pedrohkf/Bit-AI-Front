@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    width: 100%;
+    background-color: rgb(41, 41, 41);
     height: 100vh;
 }
 
@@ -9,14 +9,27 @@
     justify-content: center;
     align-items: center;
     width: 30%;
-    height: 100vh;
-    background-color: beige;
+    background-color: aliceblue;
 }
 
-
-.content {
+.contentForm {
+    width: 90%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+}
+
+
+@media (max-width: 650px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ad {
+        width: 100%;
+        height: 8rem;
+    }
 }
