@@ -1,9 +1,23 @@
 .container {
     display: flex;
     height: 100vh;
-    width: 19rem;
-    background-color: #0B0C24;
-    color: #A8A7A7;
+}
+
+.menuBar {
+    background-color: #4F48FF;
+    margin: 2rem;
+    display: none;
+}
+
+.menuBarDesactived {
+    display: flex;
+    margin: 2rem;
+}
+
+.menuBarActived {
+    position: absolute;
+    margin: 2rem;
+    z-index: 100;
 }
 
 .menuLayout {
@@ -11,7 +25,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 19rem;
+    height: 100vh;
+    background-color: #0B0C24;
+    color: #A8A7A7;
+    transition: transform 0.5s ease-out, opacity;
+    transform: translateX(0);
+    opacity: 1;
+}
 
+.menuLayoutDesactived {
+    opacity: 1;
+    transform: translateX(-150%);
+    width: 10rem;
+    margin-left: -10rem;
 }
 
 .menuLayout h2 {
@@ -48,4 +75,11 @@
 
 .text {
     margin-left: 1rem;
+}
+
+@media (min-width: 510px) {
+    .menuBarActived {
+        display: none;
+        transition: 5s ease-in;
+    }
 }

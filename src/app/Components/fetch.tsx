@@ -14,11 +14,11 @@ export default async function Fetch() {
 
     return (
         <div>
-            {data.map(produto => 
-            <li key={produto._id}>
-                <p>{produto.name}</p>
-                <p>{produto.prompt}</p>
-            </li>)}
+            {data.map(produto =>
+                <li key={produto._id}>
+                    <p>{produto.name}</p>
+                    <p>{produto.prompt}</p>
+                </li>)}
         </div>
     )
 }
