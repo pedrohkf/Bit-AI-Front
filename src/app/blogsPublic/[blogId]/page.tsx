@@ -3,7 +3,6 @@ import FetchBlogsById, { Blog } from "@/actions/blogId-get"
 import styles from './Blog.module.css'
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Blogs from "@/app/Components/Blog/Blogs";
 import FetchBlogs from "@/actions/blog-get";
 
 type HTMLContent = {
@@ -23,14 +22,16 @@ export default function Page() {
       const data = await FetchBlogsById(blogId);
       setBlog(data);
 
-      const date = new Date(data?.createadAt);
+      const date = data?.createadAt ? new Date(data.createadAt) : null;
+
 
       const formattedDate = new Intl.DateTimeFormat("pt-BR", {
         day: "2-digit",
         month: "long",
         year: "numeric",
         timeZone: "America/Sao_Paulo",
-      }).format(date);
+      }).format(date ?? new Date());
+
 
       setDateBlog(formattedDate)
     }

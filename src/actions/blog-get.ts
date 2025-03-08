@@ -5,7 +5,7 @@ import userGet from "./user-get";
 export type Blog = {
     _id: string;
     writerName: string;
-    dacreateadAt: string;
+    createadAt: string;
     title: string;
     subTitle: string;
     complementTitle: string;
