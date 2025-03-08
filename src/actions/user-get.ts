@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 
 export type User = {
     _id: string;
+    name: string;
     email: string;
 }
 

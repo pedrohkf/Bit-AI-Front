@@ -7,17 +7,17 @@
     color: rgb(209, 209, 209);
 }
 
-.container h1{
+.container h1 {
     font-size: 32px;
     color: rgb(224, 224, 224);
 }
 
-#catchyPhrase{
+#catchyPhrase {
     color: rgb(133, 133, 133);
     font-size: 15px;
 }
 
-.content{
+.content {
     display: flex;
     flex-direction: column;
     row-gap: 1.3rem;
@@ -30,7 +30,49 @@
     font-family: poppins-regular;
 }
 
-.content img{
+.content img {
     border-radius: 5px;
 }
 
+.link {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.allBlogs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5rem;
+}
+
+.blogUserSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.blogUserSection img {
+    width: 14em;
+    border-radius: 6px;
+}
+
+.blogUserBoxes {
+    display: flex;
+    width: 100%;
+}
+
+.allBlogs hr {
+    width: 100%;
+    border: 0.5px solid rgba(255, 255, 255, 0.459);
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.blogUser {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

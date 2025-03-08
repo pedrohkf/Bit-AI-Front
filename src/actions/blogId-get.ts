@@ -3,6 +3,8 @@ import axios from "axios";
 
 export type Blog = {
     _id: string;
+    writerName: string;
+    createadAt: string;
     title: string;
     subTitle: string;
     complementTitle: string;

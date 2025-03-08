@@ -1,10 +1,12 @@
 'use server';
 import axios from "axios";
 import userGet from "./user-get";
+import { writer } from "node:repl";
 
 export default async function PostBlog(formData: FormData) {
-    const User = await userGet()
-    const userId = User?._id
+    const User = await userGet();
+    const userId = User?._id;
+    const writerName = User?.name;
 
     const title = formData.get("title") as string;
     const subTitle = formData.get("subTitle") as string;
@@ -23,13 +25,15 @@ export default async function PostBlog(formData: FormData) {
         throw new Error('Preencha todos os campos obrigatórios.');
     }
 
-    if (!userId) {
-        throw new Error("User undefined vazio");
+    if (!writer) {
+        throw new Error("WriterName undefined, vazio");
     }
 
-    if (!img) throw new Error('Preencha os  da IMG.')
+    if (!userId) {
+        throw new Error("User undefined, vazio");
+    }
 
-    console.log(userId)
+    if (!img) throw new Error('Preencha os dados IMG.')
 
     const response = await axios.post('https://bitai-back.vercel.app/blogs/add', {
         title,
@@ -40,6 +44,7 @@ export default async function PostBlog(formData: FormData) {
         developmentText,
         conclusion,
         img,
+        writerName,
         userId,
     });
 

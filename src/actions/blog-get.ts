@@ -4,6 +4,8 @@ import userGet from "./user-get";
 
 export type Blog = {
     _id: string;
+    writerName: string;
+    dacreateadAt: string;
     title: string;
     subTitle: string;
     complementTitle: string;
@@ -17,15 +19,15 @@ export type Blog = {
     user: string;
 }
 
-export default async function FetchBlogs(){
+export default async function FetchBlogs() {
     const idUser = await userGet()
 
-    if(!idUser || !idUser._id){
+    if (!idUser || !idUser._id) {
         throw new Error("User not found or user ID is undefined");
     }
 
     const response = await axios.get(`https://bitai-back.vercel.app/blogs/${idUser._id}`)
-    
+
     const data = response.data as Blog[]
 
     return data
