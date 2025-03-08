@@ -4,7 +4,10 @@ import Script from "next/script";
 export default function Home() {
   return (
     <>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5RFJH56K92" />
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-5RFJH56K92"
+      />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -13,6 +16,13 @@ export default function Home() {
           gtag('config', 'G-5RFJH56K92');
         `}
       </Script>
+
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6187276285459648"
+        crossOrigin="anonymous"
+      />
+
       <div>
         <HomePage />
       </div>
