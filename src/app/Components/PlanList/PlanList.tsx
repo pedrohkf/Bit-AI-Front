@@ -1,10 +1,18 @@
 import styles from "./PlanList.module.css"
 
-export default function PlanList({ plan, price, description, topics, typePlan, popular }) {
+interface PlanListProps {
+    plan: string;
+    price: string;
+    description: string;
+    topics: string;
+    typePlan: string;
+    popular: boolean;
+}
+
+export default function PlanList({ plan, price, description, topics, typePlan, popular }: PlanListProps) {
     return (
-        <div className={popular ? styles.border : ""
-        }>
-            {popular ? <p>RECOMENDADO</p> : ""}
+        <div className={popular ? styles.border : ""}>
+            {popular && <p>RECOMENDADO</p>}
             <div className={styles.card}>
                 <div className={popular ? styles.titlePopular : styles.title}>
                     <h2>{plan}</h2>
