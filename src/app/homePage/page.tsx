@@ -19,7 +19,7 @@ export default function HomePage() {
                                 sites e funis automatizados com rapidez, economia e eficiência. O
                                 futuro ao seu alcance!
                             </p>
-                            <button>CRIAR</button>
+                            <a href="/pageAssignment"><button>CRIAR</button></a>
                         </div>
                     </div>
                 </div>
