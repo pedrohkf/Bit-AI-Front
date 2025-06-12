@@ -3,6 +3,8 @@ import styles from "./ebook.module.css"
 import React from 'react'
 import SideMenu from '@/app/Components/Menu/SideMenu'
 
+export const dynamic = "force-dynamic";
+
 export default async function page() {
     const data = await FetchEbooks()
 

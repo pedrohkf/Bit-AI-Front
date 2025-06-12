@@ -2,21 +2,21 @@
 import axios from "axios";
 import userGet from "./user-get";
 
-export type Blog = {
+export type Ebook = {
     _id: string;
-    cape: string,
-    title: string,
-    authorName: string,
-    brandApresentation: string,
-    baseTheme: string,
-    introductionTheme: string,
-    fundamentalTheme: string,
-    principlesTheme: string,
-    conclusionTheme: string,
-    links: [],
-    contact: string,
-    createadAt: string,
-    user: string
+    cape: string;
+    title: string;
+    authorName: string;
+    brandApresentation: string;
+    baseTheme: string;
+    introductionTheme: string;
+    fundamentalTheme: string;
+    principlesTheme: string;
+    conclusionTheme: string;
+    links: [];
+    contact: string;
+    createadAt: string;
+    user: string;
 }
 
 export default async function FetchEbooks() {
@@ -28,7 +28,7 @@ export default async function FetchEbooks() {
 
     const response = await axios.get(`https://bitai-back.vercel.app/ebooks/${idUser._id}`)
 
-    const data = response.data as Blog[]
+    const data = response.data as Ebook[]
 
     return data
 }
