@@ -1,0 +1,37 @@
+.menu{
+    display: flex;
+    height: 4rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo p{
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    height: 4rem;
+    width: 3rem;
+    padding: 0;
+}
+
+.buttons{
+    display: flex;
+    column-gap: 0.5rem;
+}
+
+.buttons button{
+    margin: 0;
+    width: 7.5rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+@media (max-width: 340px) {
+    .buttons button{
+        width: 5.8rem;
+        height: 2.5rem;
+        font-size: 12px;
+    }
+}
