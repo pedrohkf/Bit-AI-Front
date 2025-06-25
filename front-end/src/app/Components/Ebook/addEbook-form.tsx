@@ -1,44 +1,50 @@
-'use client'
+"use client"
 import Button from '@/app/Components/forms/button';
-import { useFormStatus } from "react-dom";
 import { useEbookContext } from '@/context/EbookContext';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { measureMemory } from 'vm';
+import userGet from "@/actions/user-get";
 
-function FormButton() {
-    const { pending } = useFormStatus();
-
+function FormButton({ loading }: { loading: boolean }) {
     return (
-        <>
-            {pending ? (
-                <Button disabled={pending}>Criando...</Button>
-            ) : (
-                <Button>Criar</Button>
-            )}
-        </>
+        <Button disabled={loading}>
+            {loading ? "Criando..." : "Criar"}
+        </Button>
     );
 }
 
 export default function AddBlog() {
-    const [message, setMessage] = useState<string>('')
-    const { posts, setPosts } = useEbookContext()
     const router = useRouter();
+    const [userId, setUserId] = useState<string | null>(null)
+    const [message, setMessage] = useState<string>('')
+    const [loading, setLoading] = useState(false);
+    const { posts, setPosts } = useEbookContext()
+
+    useEffect(() => {
+        async function fetchUser() {
+            const User = await userGet();
+            setUserId(User?._id ?? null);
+        }
+
+        fetchUser();
+    }, [])
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log(message)
-        const response = await axios.post(`http://localhost:2700/ia/groq/ebook`, { theme: message });
 
-        const data = response.data;
+        try {
+            const response = await axios.post(`http://localhost:2700/ia/groq/ebook`, { theme: message, userId });
 
-        setPosts(data.response)
+            const data = response.data;
+            setPosts(data.response)
+            router.push('edit');
+        } catch (error) {
+            console.error("Erro ao criar ebook", error)
+        } finally {
+            setLoading(false)
+        }
 
-        console.log(data.response);
-        console.log(posts)
-
-        router.push('edit');
     }
 
     useEffect(() => {
@@ -49,7 +55,7 @@ export default function AddBlog() {
         <>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="text" placeholder="text" value={message} onChange={(e) => setMessage(e.target.value)} />
-                <FormButton />
+                <FormButton loading={loading} />
             </form>
         </>
     )

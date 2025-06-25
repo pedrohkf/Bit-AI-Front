@@ -4,20 +4,29 @@ import userGet from "./user-get";
 
 export type Ebook = {
     _id: string;
-    cape: string;
+    cape?: string;
     title: string;
-    authorName: string;
-    brandApresentation: string;
-    baseTheme: string;
-    introductionTheme: string;
-    fundamentalTheme: string;
-    principlesTheme: string;
-    conclusionTheme: string;
-    links: [];
-    contact: string;
-    createadAt: string;
-    user: string;
-}
+    authorName?: string;
+    subtitle: string;
+    copyright: string;
+    chapterReaderAvatar: string;
+    chapterStorytelling: string;
+    chapterConnection: string;
+    chapterIntroduction: string;
+    chapterProblem: string;
+    chapterSolution: string;
+    chapterInterest: string;
+    chapterDevelopment: string;
+    chapterAttention: string;
+    chapterDesire: string;
+    chapterAction: string;
+    chapterCaseStudies: string;
+    chapterCTA: string;
+    links: string[];
+    contact?: string;
+    createdAt: string;
+    userId: string;
+};
 
 export default async function FetchEbooks() {
     const idUser = await userGet()
@@ -26,7 +35,7 @@ export default async function FetchEbooks() {
         throw new Error("User not found or user ID is undefined");
     }
 
-    const response = await axios.get(`https://bitai-back.vercel.app/ebooks/${idUser._id}`)
+    const response = await axios.get(`http://localhost:2700/ebooks/${idUser._id}`)
 
     const data = response.data as Ebook[]
 
