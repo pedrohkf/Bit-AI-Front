@@ -2,6 +2,7 @@ import FetchEbooks from '@/actions/ebook-get'
 import styles from "./ebook.module.css"
 import React from 'react'
 import SideMenu from '@/app/Components/Menu/SideMenu'
+import Link from 'next/link';
 
 export const dynamic = "force-dynamic";
 
@@ -11,16 +12,21 @@ export default async function page() {
     return (
         <div className={styles.container}>
             <SideMenu />
-            <div className={styles.content}>
-                <div className={styles.ebooks}>{data.map((ebook) =>
-                    <div key={ebook.title}>
-                        <img src={ebook.cape} />
-                        <div className={styles.description}>
-                            <h3>{ebook.title}</h3>
-                            <p>{ebook.createadAt}</p>
+            <div className={styles.grid}>
+                <h1>Meus Ebooks</h1>
+                <div className={styles.newEbook}>
+                    <Link href='ebook/addEbook'>+ Ebook</Link>
+                </div>
+                <div className={styles.content}>
+                    <div className={styles.ebooks}>{data.map((ebook) =>
+                        <div key={ebook.title}>
+                            <div className={styles.description}>
+                                <h3>{ebook.title}</h3>
+                                <p>{ebook.createdAt}</p>
+                            </div>
                         </div>
-                    </div>
-                )}</div>
+                    )}</div>
+                </div>
             </div>
 
         </div>

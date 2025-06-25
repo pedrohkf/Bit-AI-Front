@@ -1,4 +1,4 @@
-import AddBlog from '@/app/Components/Blog/addBlog-form'
+import AddBlog from '@/app/Components/Ebook/addEbook-form'
 import React from 'react'
 
 export default function addBlog() {

@@ -34,7 +34,7 @@ export default function AddBlog() {
         e.preventDefault()
 
         try {
-            const response = await axios.post(`http://localhost:2700/ia/groq/ebook`, { theme: message, userId });
+            const response = await axios.post(`https://bitai-back.vercel.app/ia/groq/ebook`, { theme: message, userId });
 
             const data = response.data;
             setPosts(data.response)

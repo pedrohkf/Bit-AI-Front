@@ -2,6 +2,7 @@ import { BlogProvider } from "@/context/BlogContext";
 import type { Metadata } from "next";
 import "./globals.css";
 import { ReactNode } from "react";
+import { EbookProvider } from "@/context/EbookContext";
 
 export const metadata: Metadata = {
   title: "BIT-AI",
@@ -15,9 +16,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html>
       <body>
-        <BlogProvider>
-          {children}
-        </BlogProvider>
+        <EbookProvider>
+          <BlogProvider>
+            {children}
+          </BlogProvider>
+        </EbookProvider>
+
       </body>
     </html>
   );
