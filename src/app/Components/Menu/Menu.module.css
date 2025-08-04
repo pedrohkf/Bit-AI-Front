@@ -1,4 +1,4 @@
-.menu{
+.menu {
     display: flex;
     height: 4rem;
     width: 100%;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.logo p{
+.logo p {
     display: flex;
     align-items: center;
     font-size: 10px;
@@ -15,12 +15,12 @@
     padding: 0;
 }
 
-.buttons{
+.buttons {
     display: flex;
     column-gap: 0.5rem;
 }
 
-.buttons button{
+.buttons button {
     margin: 0;
     width: 7.5rem;
     height: 2.5rem;
@@ -29,7 +29,7 @@
 }
 
 @media (max-width: 340px) {
-    .buttons button{
+    .buttons button {
         width: 5.8rem;
         height: 2.5rem;
         font-size: 12px;
