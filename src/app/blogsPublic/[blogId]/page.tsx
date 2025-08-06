@@ -45,11 +45,6 @@ export default function Page() {
     fetchAllBlogs()
   }, [blogId])
 
-  const formattedIntroductoryText: HTMLContent = { __html: (blog?.introductoryText || "").replace(/\.\s/g, ".<br/> <br/>") }
-
-  const formattedDevelopment: HTMLContent = { __html: (blog?.developmentText || "").replace(/\.\s/g, ".<br/> <br/>") }
-
-
   return (
     <div className={styles.container}>
       <h1>{blog?.title}</h1>
@@ -59,10 +54,10 @@ export default function Page() {
         <li>{dateBlog}</li>
       </ul>
       <div className={styles.content}>
-        <p dangerouslySetInnerHTML={formattedIntroductoryText} />
+        <p>{blog?.introductoryText}</p>
         <img src={blog?.img} alt="Imagem do blog" />
         <p>{blog?.complementTitle}</p>
-        <p dangerouslySetInnerHTML={formattedDevelopment} />
+        <p>{blog?.developmentText}</p>
         <p>{blog?.conclusion}</p>
       </div>
       <div className={styles.allBlogs}>
