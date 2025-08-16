@@ -5,9 +5,12 @@ import React from 'react'
 export default function page() {
     return (
         <div className={styles.container}>
-            <div className={styles.ad}>IMG</div>
-            <div className={styles.contentForm}>
-                <LoginForm />
+            <LoginForm />
+
+            <div className={styles.backgroundImg}>
+                <div className={styles.rights}>
+                    <p>Direitos reservados a Bit-ai, criadora do projeto</p>
+                </div>
             </div>
         </div>
     )

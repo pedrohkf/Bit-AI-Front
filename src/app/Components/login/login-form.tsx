@@ -5,18 +5,20 @@ import styles from "./login-form.module.css"
 import { useFormStatus } from "react-dom";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import logo from "../../../../public/imgs/logo-black.png"
+import Image from "next/image";
 
 function FormButton() {
     const { pending } = useFormStatus();
 
     return (
-        <>
+        <div className={styles.buttons}>
             {pending ? (
-                <Button disabled={pending}>Enviando...</Button>
+                <Button disabled={pending}>Entrando...</Button>
             ) : (
                 <Button>Entrar</Button>
             )}
-        </>
+        </div>
     );
 }
 
@@ -45,26 +47,31 @@ export default function LoginForm() {
     }
 
     return (
-        <>
-            <form className={styles.forms} action={handleSubmit}>
-                <div className={styles.title}>
-                    <h1>LOGIN</h1>
+        <form className={styles.formLogin} action={handleSubmit}>
+            <div className={styles.title}>
+                <Image src={logo} alt="" />
+                <p>Que bom ver você de novo!</p>
+            </div>
+
+            <div className={styles.selection}>
+                <button className={styles.btnEntrar}>Entrar</button>
+                <button>Cadastrar</button>
+            </div>
+            <div className={styles.inputs}>
+                <div>
+                    <input type="email" name="email" placeholder="Insira seu email"
+                        required
+                    />
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Insira sua senha"
+                        required
+                    />
                 </div>
                 <p>{error}</p>
-                <div>
-                    <p>Email</p>
-                    <input type="email" name="email" placeholder="email"
-                        required
-                    />
-                </div>
-                <div>
-                    <p>Senha</p>
-                    <input type="password" name="password" placeholder="senha"
-                        required
-                    />
-                </div>
-                <FormButton />
-            </form>
-        </>
+            </div>
+
+            <FormButton />
+        </form>
     )
 }

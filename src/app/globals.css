@@ -56,20 +56,6 @@ p {
   letter-spacing: 1.3px;
 }
 
-button {
-  width: 10rem;
-  height: 3rem;
-  background-color: #241FB6;
-  color: white;
-  border: none;
-  border-radius: 100px;
-  margin-top: 3rem;
-  font-size: 17px;
-  font-family: poppins-medium;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
 li {
   list-style: none;
 }
