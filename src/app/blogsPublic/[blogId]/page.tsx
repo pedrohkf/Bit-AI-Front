@@ -5,10 +5,6 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import FetchBlogs from "@/actions/blog-get";
 
-type HTMLContent = {
-  __html: string;
-};
-
 export default function Page() {
   const params = useParams();
   const blogId = params.blogId as string;
