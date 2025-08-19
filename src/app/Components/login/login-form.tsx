@@ -22,7 +22,7 @@ function FormButton() {
     );
 }
 
-export default function LoginForm() {
+export default function LoginForm({ onSwitch }: { onSwitch: () => void }) {
     const [error, setError] = useState<string>();
 
     const handleSubmit = async (formData: FormData) => {
@@ -54,8 +54,8 @@ export default function LoginForm() {
             </div>
 
             <div className={styles.selection}>
-                <button className={styles.btnEntrar}>Entrar</button>
-                <button>Cadastrar</button>
+                <button className={styles.btnActived}>Entrar</button>
+                <button onClick={onSwitch}>Cadastrar</button>
             </div>
             <div className={styles.inputs}>
                 <div>

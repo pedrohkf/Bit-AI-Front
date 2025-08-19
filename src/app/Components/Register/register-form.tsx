@@ -5,22 +5,24 @@ import { useFormStatus } from "react-dom";
 import styles from "./register-form.module.css"
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import logo from "../../../../public/imgs/logo-black.png"
+import Image from "next/image";
 
 function FormButton() {
     const { pending } = useFormStatus();
 
     return (
-        <>
+        <div className={styles.buttons}>
             {pending ? (
                 <Button disabled={pending}>Enviando...</Button>
             ) : (
                 <Button onClick={() => redirect('bit-ai/dashboard')}>Entrar</Button>
             )}
-        </>
+        </div>
     );
 }
 
-export default function LoginForm() {
+export default function LoginForm({ onSwitch }: { onSwitch: () => void }) {
     const [error, setError] = useState<string>();
 
     const handleSubmit = async (formData: FormData) => {
@@ -48,30 +50,25 @@ export default function LoginForm() {
     }
 
     return (
-        <>
-            <form className={styles.forms} action={handleSubmit}>
-                <div className={styles.title}>
-                    <h1>Register</h1>
-                </div>
+        <form className={styles.formRegister} action={handleSubmit}>
+            <div className={styles.title}>
+                <Image src={logo} alt="" />
+                <p>Que bom ver você de novo!</p>
+            </div>
+
+            <div className={styles.selection}>
+                <button onClick={onSwitch}>Entrar</button>
+                <button className={styles.btnActived}>Cadastrar</button>
+            </div>
+
+            <div className={styles.inputs}>
+                <div><input type="text" name="name" placeholder="nome" required /></div>
+                <div><input type="email" name="email" placeholder="email" required /></div>
+                <div><input type="password" name="password" placeholder="senha" required /></div>
                 <p>{error}</p>
-                <div>
-                    <p>Nome</p>
-                    <input type="text" name="name" placeholder="nome" required />
-                </div>
-                <div>
-                    <p>Email</p>
-                    <input type="email" name="email" placeholder="email"
-                        required
-                    />
-                </div>
-                <div>
-                    <p>Senha</p>
-                    <input type="password" name="password" placeholder="senha"
-                        required
-                    />
-                </div>
-                <FormButton />
-            </form>
-        </>
+            </div>
+
+            <FormButton />
+        </form>
     )
 }
