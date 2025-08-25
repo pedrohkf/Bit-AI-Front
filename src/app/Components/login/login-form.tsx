@@ -60,15 +60,13 @@ export default function LoginForm({ onSwitch }: { onSwitch: () => void }) {
             <div className={styles.inputs}>
                 <div>
                     <input type="email" name="email" placeholder="Insira seu email"
-                        required
                     />
                 </div>
                 <div>
                     <input type="password" name="password" placeholder="Insira sua senha"
-                        required
                     />
                 </div>
-                <p>{error}</p>
+                <p className={styles.errorMessage}>{error}</p>
             </div>
 
             <FormButton />

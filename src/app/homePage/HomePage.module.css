@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    height: 100vh;
+    height: 100%;
     background-color: hsl(0, 0%, 0%);
     color: white;
 }
@@ -27,7 +27,7 @@
 
 .title h1 {
     font-family: poppins-bold;
-    font-size: 50px;
+    font-size: 45px;
     background: linear-gradient(to right, #2429C8, #5C489D, #FEBA7A, #DE710C, #D27EF8, #A067D2, #5C489D, #2429C8);
     background-size: 200%;
     background-clip: text;
@@ -39,15 +39,15 @@
 .title h2 {
     padding-top: 1rem;
     font-family: poppins-bold;
-    font-size: 50px;
-    line-height: 62px;
+    font-size: 30px;
+    line-height: 42px;
 }
 
 .title p {
     padding-top: 4rem;
-    font-size: 21px;
+    font-size: 16px;
     letter-spacing: 3px;
-    line-height: 31.5px;
+    line-height: 27px;
     font-family: poppins-medium;
 }
 

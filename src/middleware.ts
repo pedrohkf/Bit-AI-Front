@@ -9,10 +9,10 @@ export async function middleware(request: NextRequest) {
     const authenticated = token && token.trim() !== '';
 
     if (!authenticated && request.nextUrl.pathname.startsWith('/bit-ai')) {
-        return NextResponse.redirect(new URL('/login', request.url))
+        return NextResponse.redirect(new URL('/auth', request.url))
     }
 
-    if (authenticated && request.nextUrl.pathname.startsWith('/login')) {
+    if (authenticated && request.nextUrl.pathname.startsWith('/auth')) {
         return NextResponse.redirect(new URL('/bit-ai/dashboard', request.url))
     }
 
